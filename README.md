@@ -14,6 +14,8 @@ go-id-builder使用mysql来做为最大id数的持久化存储。程序在每次
 
 `go get github.com/freshcn/go-id-builder`
 
+将 `db.sql`中的数据表结构导入到你的 MYSQL 数据库中，在 app.ini 中配置你的mysql 数据的连接信息。
+
 也可以通过项目的`releases` https://github.com/freshcn/go-id-builder/releases 中直接下载二进制包来安装运行
 
 # 配置数据库
