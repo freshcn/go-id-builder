@@ -1,4 +1,6 @@
 # go-id-builder
+![travis-ci](https://travis-ci.org/freshcn/go-id-builder.svg?branch=master)
+
 这是一个使用golang开发的ID生成器，它可以提供通过高效的方式产生连续唯一的ID值。在分库分表时可以提供非常有用的帮助。
 # 为什么要做id生成器
 
