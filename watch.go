@@ -25,7 +25,7 @@ func watch() {
 				var max, step int64 = 0, 0
 				var err error
 				for {
-					max, step, err = updateId(key)
+					max, step, err = updateID(key)
 					if err != nil {
 						fmt.Println(err)
 						time.Sleep(5 * time.Millisecond)
@@ -61,14 +61,14 @@ func makeChan() {
 	}
 
 	// 将不存在于当前监听列表中的数据添加到监听列表中
-	for key, _ := range list {
+	for key := range list {
 		if _, exists := watchList[key]; !exists {
 			watchList[key] = make(idChan, getPreStep()*2)
 		}
 	}
 
 	// 检查存在于当前监听列表中，却已经不再存在数据中的ID
-	for key, _ := range watchList {
+	for key := range watchList {
 		if _, exists := list[key]; !exists {
 			delete(watchList, key)
 		}

@@ -10,7 +10,7 @@ import (
 var mysql *sql.DB
 
 // 数据表名
-var tablename string = "idgenerator"
+var tablename = "idgenerator"
 
 func init() {
 	dsn, b := config.Get("mysql", "dsn")
@@ -47,7 +47,7 @@ func idsList() (arr map[string]int64, err error) {
 
 // 向name所指定的id中申请新的ID空间
 // 向数据库申请成功后返回新申请到的最大数和申请的数量
-func updateId(name string) (num int64, preStep int64, err error) {
+func updateID(name string) (num int64, preStep int64, err error) {
 	num = 0
 
 	preStep = getPreStep()

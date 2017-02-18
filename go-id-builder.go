@@ -19,8 +19,8 @@ func main() {
 		bind = ":3002"
 	}
 
-	http.HandleFunc("/", requestId)
-	http.HandleFunc("/*	", requestId)
+	http.HandleFunc("/", requestID)
+	http.HandleFunc("/*	", requestID)
 
 	// 开始http处理
 	err := http.ListenAndServe(bind, nil)
@@ -31,7 +31,7 @@ func main() {
 }
 
 // 处理用户的网络请求
-func requestId(w http.ResponseWriter, r *http.Request) {
+func requestID(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
