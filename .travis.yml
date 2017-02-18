@@ -20,17 +20,24 @@ install:
 script:
     - ls -l|grep go-id-builder
 
+before_deploy:
+    - zip -q darwin_386.zip go-id-builder_darwin_386 README.md app.ini db.sql
+    - zip -q darwin_amd64.zip go-id-builder_darwin_amd64 README.md app.ini db.sql
+    - zip -q linux_386.zip go-id-builder_linux_386 README.md app.ini db.sql
+    - zip -q linux_amd64.zip go-id-builder_linux_amd64 README.md app.ini db.sql
+    - zip -q windows_386.zip go-id-builder_windows_386.exe README.md app.ini db.sql
+    - zip -q windows_amd64.zip go-id-builder_windows_amd64.exe README.md app.ini db.sql
 deploy:
     provider: releases
     api_key: "$GH_TOKEN"
     file:
-        - go-id-builder_darwin_386
-        - go-id-builder_darwin_amd64
-        - go-id-builder_linux_386
-        - go-id-builder_linux_amd64
-        - go-id-builder_windows_386.exe
-        - go-id-builder_windows_amd64.exe
+        - darwin_386.zip
+        - darwin_amd64.zip
+        - linux_386.zip
+        - linux_amd64.zip
+        - windows_386.zip
+        - windows_amd64.zip
     skip_cleanup: true
     on:
         condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
-        tags: true
+        # tags: true
