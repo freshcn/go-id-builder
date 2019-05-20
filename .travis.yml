@@ -1,9 +1,7 @@
 language: go
 
 go:
-    - 1.6.x
-    - 1.7.x
-    - 1.8.x
+    - 1.12.x
 
 before_install:
     - go get github.com/mitchellh/gox
@@ -39,5 +37,4 @@ deploy:
         - windows_amd64.zip
     skip_cleanup: true
     on:
-        condition: $TRAVIS_GO_VERSION =~ ^1\.7\.[0-9]+$
         tags: true
